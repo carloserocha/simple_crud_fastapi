@@ -1,0 +1,16 @@
+version: "3"
+services:
+    marketplace-db:
+        restart: true
+        image: postgres:9.6
+        container_name: "postgres"
+        environment:
+            - POSTGRES_DB=feijoada
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_HOST_AUTH_METHOD=trust
+            - TZ=GMT
+        volumes:
+            - "./data/postgres:/var/lib/postgresql/data"
+        ports:
+            - 5432:5432
